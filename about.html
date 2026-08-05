@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Rexton Muffin Whisper</title>
+  <!-- Google Fonts: premium serif + sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome (minimal icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ---------- RESET & BASE (same as homepage) ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf7f2;
+      color: #1e1b1a;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    /* ---------- TYPOGRAPHY ---------- */
+    h1, h2, h3, h4 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    h1 {
+      font-size: 3.8rem;
+      line-height: 1.1;
+    }
+    h2 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+    }
+    h3 {
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+    .body-large {
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+    .label-small {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    /* ---------- BRAND COLOR PALETTE ---------- */
+    :root {
+      --cream: #faf7f2;
+      --deep-umber: #2e2522;
+      --burnt-peach: #d48c7a;
+      --fig-purple: #6b4c5a;
+      --sage: #b6b9a9;
+      --soft-gold: #d9b68b;
+      --white: #ffffff;
+      --shadow-sm: 0 8px 20px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.02);
+      --shadow-hover: 0 20px 40px rgba(0,0,0,0.04), 0 10px 20px rgba(0,0,0,0.03);
+    }
+    /* ---------- NAVIGATION (exactly as homepage) ---------- */
+    .nav-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 1.8rem 0 0.5rem;
+      border-bottom: 1px solid rgba(46, 37, 34, 0.08);
+    }
+    .logo-icon {
+      font-size: 2.4rem;
+      color: var(--burnt-peach);
+      transform: rotate(-6deg);
+      display: inline-block;
+    }
+    .logo-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--deep-umber);
+    }
+    .logo-text span {
+      color: var(--fig-purple);
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 2.5rem;
+      margin: 1.2rem 0 2.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(46, 37, 34, 0.05);
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--deep-umber);
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.3rem;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--burnt-peach);
+      color: var(--burnt-peach);
+    }
+    .nav-links a i {
+      margin-right: 0.4rem;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    /* ---------- ABOUT PAGE SPECIFIC ---------- */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      margin: 2rem 0 4rem;
+      align-items: center;
+    }
+    .about-hero h1 {
+      font-size: 4.2rem;
+      margin-bottom: 1rem;
+    }
+    .about-hero h1 i {
+      color: var(--burnt-peach);
+      font-style: italic;
+    }
+    .about-hero p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      max-width: 90%;
+      color: #3d3330;
+    }
+    .about-side {
+      background: var(--white);
+      padding: 2.2rem 2rem;
+      border-radius: 32px 8px 32px 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(214, 140, 122, 0.2);
+    }
+    .about-side .label-small {
+      color: var(--fig-purple);
+    }
+    .about-side h3 {
+      font-size: 2rem;
+      margin-top: 0.25rem;
+    }
+    .about-side .meta {
+      display: flex;
+      gap: 0.8rem;
+      margin: 1rem 0 1.2rem;
+      font-size: 0.85rem;
+      color: #5f4d47;
+    }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--deep-umber);
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: default;
+      transition: all 0.2s;
+      color: var(--deep-umber);
+      display: inline-block;
+    }
+    .btn-ghost i {
+      margin-left: 0.5rem;
+    }
+    .btn-ghost:hover {
+      background: var(--deep-umber);
+      color: white;
+    }
+
+    /* mission / philosophy */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin: 4rem 0;
+    }
+    .mission-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-radius: 40px 8px 40px 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #ede8e2;
+    }
+    .mission-card:nth-child(2) {
+      background: #f6efe9;
+      border-radius: 8px 40px 8px 40px;
+    }
+    .mission-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    .mission-card h3 i {
+      color: var(--burnt-peach);
+      font-size: 2.2rem;
+    }
+    .mission-card p {
+      font-weight: 300;
+      font-size: 1.05rem;
+    }
+
+    /* team / contributors */
+    .team-section {
+      margin: 4rem 0;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .team-card {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 48px 8px 48px 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #e8e0d9;
+      text-align: center;
+    }
+    .team-card .avatar {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .team-card h4 {
+      font-size: 1.4rem;
+      font-family: 'Instrument Serif', serif;
+    }
+    .team-card .role {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--fig-purple);
+      font-weight: 600;
+    }
+    .team-card p {
+      font-weight: 300;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    /* timeline / story */
+    .story-timeline {
+      background: #f2ede7;
+      padding: 3rem 2.8rem;
+      border-radius: 120px 20px 120px 20px;
+      margin: 4rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .story-timeline h2 {
+      font-size: 2.8rem;
+    }
+    .story-timeline h2 i {
+      color: var(--burnt-peach);
+    }
+    .story-timeline ul {
+      list-style: none;
+    }
+    .story-timeline ul li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      display: flex;
+      gap: 1rem;
+      font-weight: 300;
+    }
+    .story-timeline ul li strong {
+      font-weight: 600;
+      color: var(--deep-umber);
+      min-width: 5rem;
+    }
+
+    /* footer (same as homepage) */
+    .footer-premium {
+      margin: 6rem 0 2rem;
+      border-top: 2px solid #e0d6ce;
+      padding-top: 3rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+    .footer-premium h4 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .footer-premium a {
+      display: block;
+      text-decoration: none;
+      color: #3d3330;
+      font-size: 0.9rem;
+      padding: 0.3rem 0;
+    }
+    .footer-premium a:hover {
+      color: var(--burnt-peach);
+    }
+    .footer-premium .brand-footer {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+    }
+    .footer-premium .brand-footer span {
+      color: var(--fig-purple);
+      font-style: italic;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .about-hero, .mission-grid, .story-timeline, .footer-premium, .team-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-hero h1 { font-size: 3rem; }
+      .story-timeline { border-radius: 40px 8px 40px 8px; padding: 2rem; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      body { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #d9c8bd, transparent);
+      margin: 2.5rem 0;
+    }
+    .fruit-protein-badge {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 1.8rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== BRAND & NAV (identical) ========== -->
+  <header>
+    <div class="nav-brand">
+      <span class="logo-icon"><i class="fas fa-seedling"></i></span>
+      <span class="logo-text">Rexton <span>Muffin</span> Whisper</span>
+      <span style="margin-left:auto; font-size:0.8rem; color:#9b887f;" class="fruit-protein-badge">
+        <span>🍑</span> <span>🥩</span> <span>🍇</span>
+      </span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-book-open"></i> About</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a>
+      <a href="privacy.html"><i class="fas fa-lock"></i> Privacy</a>
+      <a href="cookies.html"><i class="fas fa-cookie"></i> Cookies</a>
+      <a href="categories.html"><i class="fas fa-tags"></i> Categories</a>
+      <a href="disclamier.html"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a>
+    </div>
+  </header>
+
+  <!-- ========== ABOUT HERO ========== -->
+  <section class="about-hero">
+    <div>
+      <h1>About the <i>Whisper</i></h1>
+      <p class="body-large">We are a quiet editorial journal at the intersection of protein biochemistry, fruit phenology, and the art of slow nourishment. Founded in 2026, our long‑form essays and guides are crafted with scientific rigor and poetic curiosity.</p>
+      <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap; margin-top:1.5rem;">
+        <span class="btn-ghost">Our manifesto <i class="fas fa-arrow-right"></i></span>
+        <span style="font-size:0.8rem; color:#8f7a72;"><i class="fas fa-circle" style="color:var(--burnt-peach);font-size:0.5rem;"></i> 12 contributors</span>
+      </div>
+    </div>
+    <div class="about-side">
+      <span class="label-small"><i class="fas fa-quote-left"></i> core belief</span>
+      <h3>Nourishment is a dialogue.</h3>
+      <div class="meta"><span>between fruit · protein · human</span></div>
+      <p style="font-weight:300;">We explore the synergy of amino acids, polyphenols, and terroir — not as nutrition facts, but as a living language.</p>
+      <div style="margin-top:1rem; display:flex; gap:0.4rem; font-size:1.6rem;">🍒 🥑 🥩 🍇</div>
+    </div>
+  </section>
+
+  <!-- ========== MISSION / PHILOSOPHY ========== -->
+  <section class="mission-grid">
+    <div class="mission-card">
+      <h3><i class="fas fa-seedling"></i> Our roots</h3>
+      <p>Rexton Muffin Whisper began as a private notebook of a chef‑biochemist, merging farm‑to‑table wisdom with peer‑reviewed research. Today, it’s a living archive for curious cooks, athletes, and thinkers.</p>
+      <p style="margin-top:1rem;">We publish 2–3 long‑form pieces per week, each vetted by our advisory board of nutrition scientists and culinary historians.</p>
+    </div>
+    <div class="mission-card">
+      <h3><i class="fas fa-hand-holding-heart"></i> Our approach</h3>
+      <p>We reject reductive nutritionism. Instead, we celebrate the <em>context</em> of food: season, soil, fermentation, and the quiet chemistry that transforms ingredients into memories.</p>
+      <p style="margin-top:1rem;">Every article includes original tables, step‑by‑step protocols, and a “further listening” section — because wisdom is best shared slowly.</p>
+    </div>
+  </section>
+
+  <!-- ========== STORY TIMELINE ========== -->
+  <section class="story-timeline">
+    <div>
+      <h2>The <i>Whisper</i> <br>chronology</h2>
+      <p style="font-weight:300; margin-top:0.5rem;">From a single essay to a global community of protein‑fruit enthusiasts.</p>
+    </div>
+    <ul>
+      <li><strong>2026</strong> First essay: “The Peach & Pork Loin Hypothesis”</li>
+      <li><strong>2026</strong> 12 contributors join from 5 countries</li>
+      <li><strong>2026</strong> 42 articles published (and counting)</li>
+      <li><strong>2026</strong> Launch of the “Muffin Protocol” series</li>
+    </ul>
+  </section>
+
+  <!-- ========== TEAM ========== -->
+  <section class="team-section">
+    <h2 style="font-size:2.8rem; text-align:center;">Voices behind <i>the Whisper</i></h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <span class="avatar">🍑</span>
+        <h4>Elena V.</h4>
+        <div class="role">Founder & Editor</div>
+        <p>Biochemist turned food writer. Obsessed with the synergy of stone fruits and muscle metabolism.</p>
+      </div>
+      <div class="team-card">
+        <span class="avatar">🥩</span>
+        <h4>Marcus T.</h4>
+        <div class="role">Protein lead</div>
+        <p>Butcher, chef, and fermentation nerd. He translates amino acid profiles into kitchen wisdom.</p>
+      </div>
+      <div class="team-card">
+        <span class="avatar">🍇</span>
+        <h4>Priya S.</h4>
+        <div class="role">Fruit phenologist</div>
+        <p>Agronomist with a passion for polyphenols. She maps the seasonal rhythm of flavor and nutrition.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXTRA: WHAT WE BELIEVE (table / mini manifesto) ========== -->
+  <div class="section-divider"></div>
+  <section style="background:white; padding:2.5rem 2.8rem; border-radius:24px 48px 24px 48px; box-shadow:var(--shadow-sm); margin:3rem 0;">
+    <h3 style="font-size:2rem; display:flex; align-items:center; gap:0.8rem;"><i class="fas fa-feather-alt" style="color:var(--burnt-peach);"></i> Editorial principles</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; margin-top:1.5rem;">
+      <div><strong>🧪 Evidence‑based</strong><br><span style="font-weight:300;">Every claim is traced to primary research or expert interview.</span></div>
+      <div><strong>🌿 Season‑first</strong><br><span style="font-weight:300;">We follow the harvest, not the supermarket.</span></div>
+      <div><strong>📖 Long‑form depth</strong><br><span style="font-weight:300;">No fluff. Articles average 1800 words with original visuals.</span></div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER (identical) ========== -->
+  <footer class="footer-premium">
+    <div>
+      <div class="brand-footer">Rexton <span>Muffin</span> Whisper</div>
+      <p style="font-weight:300; font-size:0.9rem; margin:0.8rem 0; max-width:260px;">A quiet journal for the protein‑fruit continuum. Est. 2026.</p>
+      <div style="display:flex; gap:1rem; font-size:1.4rem; color:#b09b91;">
+        <i class="fab fa-twitter"></i> <i class="fab fa-instagram"></i> <i class="fab fa-substack"></i>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Categories</a>
+      <a href="#">Authors</a>
+    </div>
+    <div>
+      <h4>Info</h4>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Editorial Policy</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </footer>
+  <div style="border-top:1px solid #ddd6cf; padding:1.2rem 0; text-align:center; font-size:0.75rem; color:#9b887f; letter-spacing:0.04em;">
+    © 2026 Rexton Muffin Whisper · authority blog · handcrafted with <i class="fas fa-heart" style="color:var(--burnt-peach);"></i>
+  </div>
+
+</div> <!-- end container -->
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rexton Muffin Whisper · the protein & fruit journal</title>
+  <!-- Google Fonts: premium serif + sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome (minimal icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf7f2;
+      color: #1e1b1a;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    /* ---------- TYPOGRAPHY (premium) ---------- */
+    h1, h2, h3, h4 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    h1 {
+      font-size: 3.8rem;
+      line-height: 1.1;
+    }
+    h2 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+    }
+    h3 {
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+    .body-large {
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+    .label-small {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    /* ---------- BRAND COLOR PALETTE ---------- */
+    :root {
+      --cream: #faf7f2;
+      --deep-umber: #2e2522;
+      --burnt-peach: #d48c7a;
+      --fig-purple: #6b4c5a;
+      --sage: #b6b9a9;
+      --soft-gold: #d9b68b;
+      --white: #ffffff;
+      --shadow-sm: 0 8px 20px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.02);
+      --shadow-hover: 0 20px 40px rgba(0,0,0,0.04), 0 10px 20px rgba(0,0,0,0.03);
+    }
+    /* ---------- UNIQUE NAVIGATION (floating + asymmetric) ---------- */
+    .nav-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 1.8rem 0 0.5rem;
+      border-bottom: 1px solid rgba(46, 37, 34, 0.08);
+    }
+    .logo-icon {
+      font-size: 2.4rem;
+      color: var(--burnt-peach);
+      transform: rotate(-6deg);
+      display: inline-block;
+    }
+    .logo-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--deep-umber);
+    }
+    .logo-text span {
+      color: var(--fig-purple);
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 2.5rem;
+      margin: 1.2rem 0 2.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(46, 37, 34, 0.05);
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--deep-umber);
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.3rem;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--burnt-peach);
+      color: var(--burnt-peach);
+    }
+    .nav-links a i {
+      margin-right: 0.4rem;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    /* ---------- HOMEPAGE ARCHITECTURE (Editorial Journal) ---------- */
+    /* SECTION 1: "THE WHISPER" – hero with asymmetry */
+    .whisper-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      margin: 3rem 0 5rem;
+      align-items: start;
+    }
+    .whisper-main h1 {
+      font-size: 4.2rem;
+      margin-bottom: 0.8rem;
+      color: var(--deep-umber);
+    }
+    .whisper-main h1 i {
+      color: var(--burnt-peach);
+      font-style: italic;
+    }
+    .whisper-main p {
+      font-size: 1.3rem;
+      font-weight: 300;
+      max-width: 90%;
+      color: #3d3330;
+      margin: 0.8rem 0 1.8rem;
+    }
+    .whisper-side {
+      background: var(--white);
+      padding: 2.2rem 2rem;
+      border-radius: 32px 8px 32px 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(214, 140, 122, 0.2);
+    }
+    .whisper-side .label-small {
+      color: var(--fig-purple);
+    }
+    .whisper-side h3 {
+      font-size: 2rem;
+      margin-top: 0.25rem;
+    }
+    .whisper-side .meta {
+      display: flex;
+      gap: 0.8rem;
+      margin: 1rem 0 1.2rem;
+      font-size: 0.85rem;
+      color: #5f4d47;
+    }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--deep-umber);
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: default;
+      transition: all 0.2s;
+      color: var(--deep-umber);
+      display: inline-block;
+    }
+    .btn-ghost i {
+      margin-left: 0.5rem;
+    }
+    .btn-ghost:hover {
+      background: var(--deep-umber);
+      color: white;
+    }
+
+    /* SECTION 2: "KNOWLEDGE HUBS" – card cluster with varied styles */
+    .hubs {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.2rem;
+      margin: 4rem 0;
+    }
+    .hub-card {
+      background: var(--white);
+      padding: 2rem 1.8rem;
+      border-radius: 20px 48px 20px 48px;
+      box-shadow: var(--shadow-sm);
+      transition: 0.2s;
+      border: 1px solid #ede8e2;
+    }
+    .hub-card:first-child {
+      border-radius: 48px 20px 48px 20px;
+      background: #f6efe9;
+    }
+    .hub-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .hub-card h3 i {
+      color: var(--burnt-peach);
+      font-size: 2rem;
+    }
+    .hub-card .card-meta {
+      font-size: 0.8rem;
+      color: #7a6760;
+      margin: 0.5rem 0 1rem;
+    }
+    .hub-card ul {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+    .hub-card ul li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.03);
+      display: flex;
+      justify-content: space-between;
+      font-weight: 400;
+    }
+    .hub-card ul li span {
+      color: var(--fig-purple);
+      font-weight: 500;
+    }
+
+    /* SECTION 3: "FEATURED FRUITS & PROTEIN" – image + long‑form teaser */
+    .featured-journal {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.8rem;
+      margin: 5rem 0;
+      background: #f2ede7;
+      padding: 2.5rem 2.8rem;
+      border-radius: 120px 20px 120px 20px;
+    }
+    .featured-journal .img-wrap {
+      background: #d9c8bd;
+      border-radius: 80px 8px 80px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="200" height="120"><circle cx="40" cy="40" r="18" fill="%23d48c7a" opacity="0.5"/><circle cx="140" cy="30" r="24" fill="%236b4c5a" opacity="0.3"/><circle cx="100" cy="80" r="28" fill="%23b6b9a9" opacity="0.4"/><rect x="20" y="70" width="40" height="20" rx="10" fill="%23d9b68b" opacity="0.6"/><rect x="120" y="70" width="40" height="20" rx="10" fill="%23d9b68b" opacity="0.6"/></svg>');
+      background-size: cover;
+      background-blend-mode: overlay;
+    }
+    .featured-journal .content h2 {
+      font-size: 2.8rem;
+      margin-bottom: 0.4rem;
+    }
+    .featured-journal .content h2 i {
+      color: var(--burnt-peach);
+    }
+    .featured-journal .content p {
+      font-weight: 300;
+      font-size: 1.1rem;
+      margin: 0.8rem 0 1.2rem;
+    }
+    .featured-journal .content .btn-ghost {
+      border-color: var(--fig-purple);
+      color: var(--fig-purple);
+    }
+    .featured-journal .content .btn-ghost:hover {
+      background: var(--fig-purple);
+      color: white;
+    }
+
+    /* SECTION 4: "TIMELINE · archive" – unique */
+    .timeline-archive {
+      margin: 5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+    }
+    .timeline-item {
+      border-left: 3px solid var(--soft-gold);
+      padding-left: 1.8rem;
+      margin-bottom: 2.2rem;
+    }
+    .timeline-item .date {
+      font-size: 0.8rem;
+      color: #8f7a72;
+      letter-spacing: 0.04em;
+    }
+    .timeline-item h4 {
+      font-size: 1.6rem;
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+    }
+    .timeline-item p {
+      font-weight: 300;
+      font-size: 1rem;
+      margin-top: 0.2rem;
+    }
+    .archive-stats {
+      background: var(--white);
+      padding: 2rem 2.2rem;
+      border-radius: 60px 8px 60px 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #e6dfd8;
+    }
+    .archive-stats h3 {
+      font-size: 2.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .archive-stats ul {
+      list-style: none;
+      margin-top: 1.2rem;
+    }
+    .archive-stats ul li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #ddd6cf;
+    }
+
+    /* ---------- TABLE (long‑form content) ---------- */
+    .comparison-table {
+      margin: 3rem 0;
+      background: white;
+      border-radius: 24px 48px 24px 48px;
+      padding: 2rem 2.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .comparison-table table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .comparison-table th {
+      text-align: left;
+      padding: 0.8rem 0.5rem;
+      font-weight: 600;
+      color: var(--fig-purple);
+      border-bottom: 2px solid #e6dbd4;
+    }
+    .comparison-table td {
+      padding: 0.8rem 0.5rem;
+      border-bottom: 1px solid #ede7e1;
+    }
+
+    /* ---------- FOOTER (handcrafted) ---------- */
+    .footer-premium {
+      margin: 6rem 0 2rem;
+      border-top: 2px solid #e0d6ce;
+      padding-top: 3rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+    .footer-premium h4 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .footer-premium a {
+      display: block;
+      text-decoration: none;
+      color: #3d3330;
+      font-size: 0.9rem;
+      padding: 0.3rem 0;
+    }
+    .footer-premium a:hover {
+      color: var(--burnt-peach);
+    }
+    .footer-premium .brand-footer {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+    }
+    .footer-premium .brand-footer span {
+      color: var(--fig-purple);
+      font-style: italic;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .whisper-grid, .featured-journal, .hubs, .timeline-archive, .footer-premium {
+        grid-template-columns: 1fr;
+      }
+      .whisper-main h1 { font-size: 3rem; }
+      .featured-journal { border-radius: 40px 8px 40px 8px; padding: 2rem; }
+    }
+    @media (max-width: 600px) {
+      body { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+    }
+    /* extra spacing uniqueness */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #d9c8bd, transparent);
+      margin: 2.5rem 0;
+    }
+    /* fruit + protein images via emoji / svg */
+    .fruit-protein-badge {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 1.8rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== BRAND & NAV ========== -->
+  <header>
+    <div class="nav-brand">
+      <span class="logo-icon"><i class="fas fa-seedling"></i></span>
+      <span class="logo-text">Rexton <span>Muffin</span> Whisper</span>
+      <span style="margin-left:auto; font-size:0.8rem; color:#9b887f;" class="fruit-protein-badge">
+        <span>🍑</span> <span>🥩</span> <span>🍇</span>
+      </span>
+    </div>
+    <div class="nav-links">
+       <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms Of Privacy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li>
+					 <li><a href="categories.html">CATEGORIES</a></li>
+					<li><a href="disclamier.html">DISCLAMIER</a></li>
+    </div>
+  </header>
+
+  <!-- ========== HOMEPAGE · EDITORIAL JOURNAL ========== -->
+  <!-- SECTION 1: THE WHISPER (hero) -->
+  <section class="whisper-grid">
+    <div class="whisper-main">
+      <h1>The <i>Whisper</i> of <br>protein & fruit.</h1>
+      <p class="body-large">A journal where science meets seasonality — long‑form essays, step‑by‑step guides, and the quiet art of nourishment.</p>
+      <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap;">
+        <span class="btn-ghost">Explore the journal <i class="fas fa-arrow-right"></i></span>
+        <span style="font-size:0.8rem; color:#8f7a72;"><i class="fas fa-circle" style="color:var(--burnt-peach);font-size:0.5rem;"></i> 12 new articles</span>
+      </div>
+    </div>
+    <div class="whisper-side">
+      <span class="label-small"><i class="fas fa-feather-alt"></i> featured essay</span>
+      <h3>The ripeness of empathy</h3>
+      <div class="meta"><span>by Elena V.</span> <span>·</span> <span>5 min read</span></div>
+      <p style="font-weight:300;">How fruit phenology and amino acid profiles shape our mood — a deep dive into tryptophan and summer stone fruits.</p>
+      <div style="margin-top:1rem; display:flex; gap:0.4rem; font-size:1.6rem;">🍒 🥑 🥩</div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: KNOWLEDGE HUBS (varied cards) -->
+  <section class="hubs">
+    <div class="hub-card">
+      <h3><i class="fas fa-microscope"></i> Protocols</h3>
+      <div class="card-meta">6 guides · updated weekly</div>
+      <ul>
+        <li>Protein‑fruit pairing <span>new</span></li>
+        <li>Fermentation & bioavailability <span>trending</span></li>
+        <li>Post‑workout berry blends <span>3 min</span></li>
+      </ul>
+    </div>
+    <div class="hub-card" style="background:#faf3ed; border-radius: 40px 12px 40px 12px;">
+      <h3><i class="fas fa-leaf" style="color:var(--sage);"></i> Seasonal</h3>
+      <div class="card-meta">monthly harvest notes</div>
+      <ul>
+        <li>August: figs & lamb <span>recipe</span></li>
+        <li>September: grape & game <span>pairing</span></li>
+        <li>October: persimmon & poultry <span>guide</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 3: FEATURED LONG‑FORM + IMAGE (fruit/protein infographic style) -->
+  <section class="featured-journal">
+    <div class="img-wrap" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 180%22><circle cx=%2260%22 cy=%2260%22 r=%2230%22 fill=%22%23d48c7a%22 opacity=%220.6%22/><circle cx=%22200%22 cy=%2250%22 r=%2236%22 fill=%22%236b4c5a%22 opacity=%220.4%22/><rect x=%2230%22 y=%22110%22 width=%2260%22 height=%2230%22 rx=%2212%22 fill=%22%23d9b68b%22 opacity=%220.7%22/><rect x=%22180%22 y=%22100%22 width=%2270%22 height=%2230%22 rx=%2212%22 fill=%22%23d9b68b%22 opacity=%220.7%22/><text x=%2220%22 y=%22160%22 font-size=%2220%22 fill=%22%233d3330%22>🍑 🥩 🍇</text></svg>'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #f0e7df;">
+      <!-- infographic style via svg background -->
+    </div>
+    <div class="content">
+      <h2>The <i>muffin</i> equation <br>protein + fruit</h2>
+      <p>This is not a recipe blog. It’s a biochemical exploration. We break down the synergy of leucine, glutamine, and anthocyanins — with original tables and practical wisdom from chefs, farmers, and neuroscientists.</p>
+      <p style="font-weight:300; font-size:0.95rem; background: rgba(255,255,255,0.6); padding: 1rem; border-radius: 16px 4px 16px 4px;">
+        <strong>🍓 1500+ words</strong> · step‑by‑step guide to muscle‑friendly fruit pairing.
+      </p>
+      <span class="btn-ghost" style="margin-top:0.5rem;">Read the essay <i class="fas fa-arrow-right"></i></span>
+    </div>
+  </section>
+
+  <!-- SECTION 4: TIMELINE + ARCHIVE (unique) -->
+  <section class="timeline-archive">
+    <div>
+      <h2 style="font-size:2.4rem; margin-bottom:1.5rem;">Recent <i>whispers</i></h2>
+      <div class="timeline-item">
+        <div class="date">July 28, 2026</div>
+        <h4>Fig‑fed lamb & the umami of ripeness</h4>
+        <p>On the interplay of inosinic acid and fruit sugars — 2200 words.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="date">July 22, 2026</div>
+        <h4>Peach‑cured salmon: a protein case study</h4>
+        <p>Enzymatic breakdown, texture, and the role of polyphenols.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="date">July 15, 2026</div>
+        <h4>Blackberry & bison: the iron‑C synergy</h4>
+        <p>Heme vs. non‑heme iron absorption with fruit acids.</p>
+      </div>
+    </div>
+    <div class="archive-stats">
+      <h3><i class="fas fa-archive" style="color:var(--burnt-peach);"></i> Archive</h3>
+      <ul>
+        <li>2026 <span>42 articles</span></li>
+        <li>2025 <span>38 articles</span></li>
+        <li>2024 <span>29 articles</span></li>
+        <li>by category <span>fruit · protein · method</span></li>
+      </ul>
+      <div style="margin-top:1.5rem; font-size:0.9rem; background:#f4eee8; padding:0.8rem; border-radius:40px 4px 40px 4px;">
+        <i class="fas fa-search"></i> search the journal
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LONG‑FORM CONTENT (example table) ========== -->
+  <div class="section-divider"></div>
+  <section class="comparison-table">
+    <h3 style="font-size:2rem; margin-bottom:0.5rem;">Protein‑fruit affinity matrix</h3>
+    <p style="font-weight:300; margin-bottom:1.5rem;">A quick reference for chefs, athletes, and curious minds.</p>
+    <table>
+      <tr><th>Fruit</th><th>Protein partner</th><th>Key synergy</th><th>Bioavailability</th></tr>
+      <tr><td>🍑 Peach</td><td>Pork loin</td><td>Vitamin C + iron</td><td>↑ 34%</td></tr>
+      <tr><td>🍇 Grape</td><td>Lamb</td><td>Resveratrol + omega‑3</td><td>↑ 22%</td></tr>
+      <tr><td>🍓 Strawberry</td><td>Chicken</td><td>Folate + B6</td><td>↑ 18%</td></tr>
+      <tr><td>🥑 Avocado</td><td>Salmon</td><td>Potassium + DHA</td><td>↑ 41%</td></tr>
+    </table>
+    <p style="margin-top:1.2rem; font-size:0.9rem; color:#6b5a53;"><i class="fas fa-book-open"></i> Full guide: 2700 words, 8 references, 3 chef interviews.</p>
+  </section>
+
+  <!-- ========== FOOTER (handcrafted) ========== -->
+  <footer class="footer-premium">
+    <div>
+      <div class="brand-footer">Rexton <span>Muffin</span> Whisper</div>
+      <p style="font-weight:300; font-size:0.9rem; margin:0.8rem 0; max-width:260px;">A quiet journal for the protein‑fruit continuum. Est. 2026.</p>
+      <div style="display:flex; gap:1rem; font-size:1.4rem; color:#b09b91;">
+        <i class="fab fa-twitter"></i> <i class="fab fa-instagram"></i> <i class="fab fa-substack"></i>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Categories</a>
+      <a href="#">Authors</a>
+    </div>
+    <div>
+      <h4>Info</h4>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Editorial Policy</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </footer>
+  <div style="border-top:1px solid #ddd6cf; padding:1.2rem 0; text-align:center; font-size:0.75rem; color:#9b887f; letter-spacing:0.04em;">
+    © 2026 Rexton Muffin Whisper · authority blog · handcrafted with <i class="fas fa-heart" style="color:var(--burnt-peach);"></i>
+  </div>
+
+</div> <!-- end container -->
+</body>
+</html>

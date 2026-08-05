@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · Rexton Muffin Whisper</title>
+  <!-- Google Fonts: premium serif + sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome (minimal icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf7f2;
+      color: #1e1b1a;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    /* ---------- TYPOGRAPHY (premium) ---------- */
+    h1, h2, h3, h4 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    h1 {
+      font-size: 3.8rem;
+      line-height: 1.1;
+    }
+    h2 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+    }
+    h3 {
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+    .body-large {
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+    .label-small {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    /* ---------- BRAND COLOR PALETTE ---------- */
+    :root {
+      --cream: #faf7f2;
+      --deep-umber: #2e2522;
+      --burnt-peach: #d48c7a;
+      --fig-purple: #6b4c5a;
+      --sage: #b6b9a9;
+      --soft-gold: #d9b68b;
+      --white: #ffffff;
+      --shadow-sm: 0 8px 20px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.02);
+      --shadow-hover: 0 20px 40px rgba(0,0,0,0.04), 0 10px 20px rgba(0,0,0,0.03);
+    }
+    /* ---------- NAVIGATION (consistent) ---------- */
+    .nav-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 1.8rem 0 0.5rem;
+      border-bottom: 1px solid rgba(46, 37, 34, 0.08);
+    }
+    .logo-icon {
+      font-size: 2.4rem;
+      color: var(--burnt-peach);
+      transform: rotate(-6deg);
+      display: inline-block;
+    }
+    .logo-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--deep-umber);
+    }
+    .logo-text span {
+      color: var(--fig-purple);
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 2.5rem;
+      margin: 1.2rem 0 2.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(46, 37, 34, 0.05);
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--deep-umber);
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.3rem;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--burnt-peach);
+      color: var(--burnt-peach);
+    }
+    .nav-links a i {
+      margin-right: 0.4rem;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    /* ---------- CONTACT PAGE UNIQUE LAYOUT ---------- */
+    .contact-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 3rem 0 4rem;
+      align-items: start;
+    }
+    .contact-hero h1 {
+      font-size: 4.2rem;
+      margin-bottom: 0.6rem;
+    }
+    .contact-hero h1 i {
+      color: var(--burnt-peach);
+      font-style: italic;
+    }
+    .contact-hero .subhead {
+      font-size: 1.3rem;
+      font-weight: 300;
+      max-width: 90%;
+      color: #3d3330;
+      margin: 0.5rem 0 1.8rem;
+    }
+    .contact-card {
+      background: var(--white);
+      padding: 2.4rem 2.2rem;
+      border-radius: 32px 8px 32px 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(214, 140, 122, 0.2);
+    }
+    .contact-card .label-small {
+      color: var(--fig-purple);
+    }
+    .contact-card h3 {
+      font-size: 2rem;
+      margin-top: 0.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-card .detail-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.03);
+    }
+    .contact-card .detail-row i {
+      width: 2rem;
+      color: var(--burnt-peach);
+      font-size: 1.2rem;
+    }
+    .contact-card .detail-row a {
+      color: var(--deep-umber);
+      text-decoration: none;
+      font-weight: 400;
+    }
+    .contact-card .detail-row a:hover {
+      color: var(--burnt-peach);
+    }
+
+    /* ---------- CONTACT FORM (asymmetric, editorial) ---------- */
+    .form-section {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.8rem;
+      margin: 2rem 0 5rem;
+      background: #f2ede7;
+      padding: 2.8rem 3rem;
+      border-radius: 120px 20px 120px 20px;
+    }
+    .form-section h2 {
+      font-size: 2.8rem;
+      margin-bottom: 0.4rem;
+    }
+    .form-section h2 i {
+      color: var(--burnt-peach);
+    }
+    .form-section .form-intro {
+      font-weight: 300;
+      font-size: 1.1rem;
+      margin: 0.5rem 0 1.8rem;
+    }
+    .form-group {
+      margin-bottom: 1.6rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--fig-purple);
+      margin-bottom: 0.3rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid #ddd6cf;
+      border-radius: 40px 8px 40px 8px;
+      background: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--burnt-peach);
+      box-shadow: 0 0 0 3px rgba(212, 140, 122, 0.2);
+    }
+    .form-group textarea {
+      border-radius: 24px 8px 24px 8px;
+      min-height: 140px;
+      resize: vertical;
+    }
+    .btn-submit {
+      background: var(--deep-umber);
+      border: none;
+      color: white;
+      padding: 0.9rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .btn-submit:hover {
+      background: var(--burnt-peach);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    .form-side-note {
+      background: var(--white);
+      padding: 2rem 2rem;
+      border-radius: 60px 8px 60px 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #ede8e2;
+      align-self: start;
+    }
+    .form-side-note h4 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .form-side-note h4 i {
+      color: var(--burnt-peach);
+    }
+    .form-side-note ul {
+      list-style: none;
+    }
+    .form-side-note ul li {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #ddd6cf;
+      display: flex;
+      gap: 1rem;
+      font-weight: 300;
+    }
+    .form-side-note ul li i {
+      color: var(--soft-gold);
+      width: 1.4rem;
+    }
+
+    /* ---------- FOOTER (handcrafted) ---------- */
+    .footer-premium {
+      margin: 6rem 0 2rem;
+      border-top: 2px solid #e0d6ce;
+      padding-top: 3rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+    .footer-premium h4 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .footer-premium a {
+      display: block;
+      text-decoration: none;
+      color: #3d3330;
+      font-size: 0.9rem;
+      padding: 0.3rem 0;
+    }
+    .footer-premium a:hover {
+      color: var(--burnt-peach);
+    }
+    .footer-premium .brand-footer {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+    }
+    .footer-premium .brand-footer span {
+      color: var(--fig-purple);
+      font-style: italic;
+    }
+    .fruit-protein-badge {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 1.8rem;
+      opacity: 0.7;
+    }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #d9c8bd, transparent);
+      margin: 2.5rem 0;
+    }
+    /* responsive */
+    @media (max-width: 900px) {
+      .contact-hero, .form-section, .footer-premium {
+        grid-template-columns: 1fr;
+      }
+      .contact-hero h1 { font-size: 3rem; }
+      .form-section { border-radius: 40px 8px 40px 8px; padding: 2rem; }
+    }
+    @media (max-width: 600px) {
+      body { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== BRAND & NAV (same as homepage) ========== -->
+  <header>
+    <div class="nav-brand">
+      <span class="logo-icon"><i class="fas fa-seedling"></i></span>
+      <span class="logo-text">Rexton <span>Muffin</span> Whisper</span>
+      <span style="margin-left:auto; font-size:0.8rem; color:#9b887f;" class="fruit-protein-badge">
+        <span>🍑</span> <span>🥩</span> <span>🍇</span>
+      </span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i>Home</a>
+      <a href="about.html"><i class="fas fa-book-open"></i>About</a>
+      <a href="contact.html" style="border-bottom-color: var(--burnt-peach); color: var(--burnt-peach);"><i class="fas fa-envelope"></i>Contact</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i>Terms Of Privacy</a>
+      <a href="privacy.html"><i class="fas fa-lock"></i>Privacy Policy</a>
+      <a href="cookies.html"><i class="fas fa-cookie-bite"></i>Cookies Policy</a>
+      <a href="categories.html"><i class="fas fa-tags"></i>CATEGORIES</a>
+      <a href="disclamier.html"><i class="fas fa-exclamation-triangle"></i>DISCLAMIER</a>
+    </div>
+  </header>
+
+  <!-- ========== CONTACT HERO ========== -->
+  <section class="contact-hero">
+    <div>
+      <h1>Let’s <i>whisper</i> <br />together.</h1>
+      <p class="subhead">Reach out for collaborations, story ideas, or just to share your favorite fruit‑protein pairing. We read every note.</p>
+      <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap;">
+        <span style="font-size:0.9rem; background: white; padding: 0.5rem 1.2rem; border-radius: 60px; border:1px solid #e0d6ce;"><i class="fas fa-clock" style="color:var(--burnt-peach);"></i> response within 48h</span>
+        <span style="font-size:0.9rem; color:#6b5a53;"><i class="fas fa-feather-alt"></i> 100% human</span>
+      </div>
+    </div>
+    <div class="contact-card">
+      <span class="label-small"><i class="fas fa-address-card"></i> direct lines</span>
+      <h3>Studio &amp; Mail</h3>
+      <div class="detail-row"><i class="fas fa-map-pin"></i> <span>Rexton Muffin Whisper · 42 Orchard Lane, NY 10001</span></div>
+      <div class="detail-row"><i class="fas fa-envelope"></i> <a href="mailto:hello@rextonmuffin.com">hello@rextonmuffin.com</a></div>
+      <div class="detail-row"><i class="fas fa-phone-alt"></i> <a href="tel:+12125551234">+1 (212) 555‑0134</a></div>
+      <div class="detail-row"><i class="fab fa-instagram"></i> <a href="#">@rexton_muffin_whisper</a></div>
+      <div style="margin-top:1.5rem; font-size:0.9rem; background:#f4eee8; padding:0.8rem 1rem; border-radius:40px 4px 40px 4px;">
+        <i class="fas fa-paper-plane" style="color:var(--burnt-peach);"></i>  We prefer email for longer thoughts.
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT FORM + SIDE NOTES (asymmetric) ========== -->
+  <section class="form-section">
+    <div>
+      <h2>Send a <i>muffin</i> letter</h2>
+      <p class="form-intro">Whether it’s a pitch, a question, or a recipe discovery — we’d love to hear from you.</p>
+      <form action="#" method="POST">
+        <div class="form-group">
+          <label for="name">Your name <i class="fas fa-asterisk" style="font-size:0.4rem; color:var(--burnt-peach);"></i></label>
+          <input type="text" id="name" placeholder="e.g. Elena V." required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email <i class="fas fa-asterisk" style="font-size:0.4rem; color:var(--burnt-peach);"></i></label>
+          <input type="email" id="email" placeholder="hello@domain.com" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option>Story idea / pitch</option>
+            <option>Collaboration</option>
+            <option>Question about an article</option>
+            <option>General note</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message <i class="fas fa-asterisk" style="font-size:0.4rem; color:var(--burnt-peach);"></i></label>
+          <textarea id="message" placeholder="Tell us about your fruit‑protein journey …" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit"><i class="fas fa-feather-alt"></i> Send whisper</button>
+      </form>
+    </div>
+    <div class="form-side-note">
+      <h4><i class="fas fa-seedling"></i> Before you write</h4>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> We respond within 48 hours.</li>
+        <li><i class="fas fa-check-circle"></i> We accept guest essays (see guidelines).</li>
+        <li><i class="fas fa-check-circle"></i> We love obscure fruit‑protein data.</li>
+        <li><i class="fas fa-check-circle"></i> No spam, ever.</li>
+      </ul>
+      <div style="margin-top:1.8rem; background:#faf3ed; padding:1rem; border-radius: 24px 4px 24px 4px; font-size:0.9rem;">
+        <i class="fas fa-quote-left" style="color:var(--soft-gold);"></i> “The best letters arrive with a fruit emoji.”
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXTRA: small divider (optional) ========== -->
+  <div class="section-divider"></div>
+
+  <!-- ========== FOOTER (handcrafted) ========== -->
+  <footer class="footer-premium">
+    <div>
+      <div class="brand-footer">Rexton <span>Muffin</span> Whisper</div>
+      <p style="font-weight:300; font-size:0.9rem; margin:0.8rem 0; max-width:260px;">A quiet journal for the protein‑fruit continuum. Est. 2026.</p>
+      <div style="display:flex; gap:1rem; font-size:1.4rem; color:#b09b91;">
+        <i class="fab fa-twitter"></i> <i class="fab fa-instagram"></i> <i class="fab fa-substack"></i>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Categories</a>
+      <a href="#">Authors</a>
+    </div>
+    <div>
+      <h4>Info</h4>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Editorial Policy</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </footer>
+  <div style="border-top:1px solid #ddd6cf; padding:1.2rem 0; text-align:center; font-size:0.75rem; color:#9b887f; letter-spacing:0.04em;">
+    © 2026 Rexton Muffin Whisper · authority blog · handcrafted with <i class="fas fa-heart" style="color:var(--burnt-peach);"></i>
+  </div>
+
+</div> <!-- end container -->
+</body>
+</html>

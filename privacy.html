@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy · Rexton Muffin Whisper</title>
+  <!-- Google Fonts: premium serif + sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome (minimal icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf7f2;
+      color: #1e1b1a;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    /* ---------- TYPOGRAPHY (premium) ---------- */
+    h1, h2, h3, h4 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    h1 {
+      font-size: 3.6rem;
+      line-height: 1.1;
+    }
+    h2 {
+      font-size: 2.4rem;
+      line-height: 1.2;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-size: 1.6rem;
+      line-height: 1.3;
+      margin-top: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+    p {
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .body-large {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+    .label-small {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    /* ---------- BRAND COLOR PALETTE ---------- */
+    :root {
+      --cream: #faf7f2;
+      --deep-umber: #2e2522;
+      --burnt-peach: #d48c7a;
+      --fig-purple: #6b4c5a;
+      --sage: #b6b9a9;
+      --soft-gold: #d9b68b;
+      --white: #ffffff;
+      --shadow-sm: 0 8px 20px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.02);
+      --shadow-hover: 0 20px 40px rgba(0,0,0,0.04), 0 10px 20px rgba(0,0,0,0.03);
+    }
+    /* ---------- NAVIGATION (consistent) ---------- */
+    .nav-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 1.8rem 0 0.5rem;
+      border-bottom: 1px solid rgba(46, 37, 34, 0.08);
+    }
+    .logo-icon {
+      font-size: 2.4rem;
+      color: var(--burnt-peach);
+      transform: rotate(-6deg);
+      display: inline-block;
+    }
+    .logo-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--deep-umber);
+    }
+    .logo-text span {
+      color: var(--fig-purple);
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 2.5rem;
+      margin: 1.2rem 0 2.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(46, 37, 34, 0.05);
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--deep-umber);
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.3rem;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--burnt-peach);
+      color: var(--burnt-peach);
+    }
+    .nav-links a i {
+      margin-right: 0.4rem;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .nav-links a.active {
+      border-bottom-color: var(--burnt-peach);
+      color: var(--burnt-peach);
+    }
+
+    /* ---------- PRIVACY PAGE SPECIFIC ---------- */
+    .privacy-hero {
+      margin: 2rem 0 3rem;
+    }
+    .privacy-hero h1 {
+      font-size: 4rem;
+      margin-bottom: 0.2rem;
+    }
+    .privacy-hero h1 i {
+      color: var(--burnt-peach);
+      font-style: italic;
+    }
+    .privacy-hero .subhead {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #3d3330;
+      max-width: 70%;
+    }
+    .privacy-card {
+      background: var(--white);
+      padding: 3rem 3.5rem;
+      border-radius: 40px 8px 40px 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(214, 140, 122, 0.15);
+      margin: 2rem 0 4rem;
+    }
+    .privacy-card h2 {
+      font-size: 2.2rem;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .privacy-card h2:first-of-type {
+      margin-top: 0.2rem;
+    }
+    .privacy-card h3 {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+    .privacy-card ul, .privacy-card ol {
+      padding-left: 1.8rem;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+    .privacy-card li {
+      margin-bottom: 0.4rem;
+    }
+    .privacy-card .highlight-box {
+      background: #f4eee8;
+      padding: 1.2rem 1.8rem;
+      border-radius: 60px 4px 60px 4px;
+      margin: 1.8rem 0;
+      border-left: 4px solid var(--burnt-peach);
+    }
+    .privacy-card .highlight-box i {
+      color: var(--burnt-peach);
+      margin-right: 0.8rem;
+    }
+    .privacy-card .meta-info {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #6b5a53;
+      border-bottom: 1px solid #e0d6ce;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+    .fruit-protein-badge {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 1.8rem;
+      opacity: 0.7;
+    }
+    /* ---------- FOOTER (handcrafted) ---------- */
+    .footer-premium {
+      margin: 6rem 0 2rem;
+      border-top: 2px solid #e0d6ce;
+      padding-top: 3rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+    .footer-premium h4 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .footer-premium a {
+      display: block;
+      text-decoration: none;
+      color: #3d3330;
+      font-size: 0.9rem;
+      padding: 0.3rem 0;
+    }
+    .footer-premium a:hover {
+      color: var(--burnt-peach);
+    }
+    .footer-premium .brand-footer {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+    }
+    .footer-premium .brand-footer span {
+      color: var(--fig-purple);
+      font-style: italic;
+    }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #d9c8bd, transparent);
+      margin: 2.5rem 0;
+    }
+    /* responsive */
+    @media (max-width: 900px) {
+      .footer-premium {
+        grid-template-columns: 1fr 1fr;
+      }
+      .privacy-hero .subhead { max-width: 100%; }
+      .privacy-card { padding: 2rem; }
+    }
+    @media (max-width: 600px) {
+      body { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+      .privacy-hero h1 { font-size: 2.8rem; }
+      .privacy-card { padding: 1.5rem; }
+      .footer-premium { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== BRAND & NAV ========== -->
+  <header>
+    <div class="nav-brand">
+      <span class="logo-icon"><i class="fas fa-seedling"></i></span>
+      <span class="logo-text">Rexton <span>Muffin</span> Whisper</span>
+      <span style="margin-left:auto; font-size:0.8rem; color:#9b887f;" class="fruit-protein-badge">
+        <span>🍑</span> <span>🥩</span> <span>🍇</span>
+      </span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i>Home</a>
+      <a href="about.html"><i class="fas fa-book-open"></i>About</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i>Terms Of Privacy</a>
+      <a href="privacy.html" class="active"><i class="fas fa-lock"></i>Privacy Policy</a>
+      <a href="cookies.html"><i class="fas fa-cookie-bite"></i>Cookies Policy</a>
+      <a href="categories.html"><i class="fas fa-tags"></i>CATEGORIES</a>
+      <a href="disclamier.html"><i class="fas fa-exclamation-triangle"></i>DISCLAMIER</a>
+    </div>
+  </header>
+
+  <!-- ========== PRIVACY HERO ========== -->
+  <section class="privacy-hero">
+    <h1>Privacy <i>Policy</i></h1>
+    <p class="subhead">Your data, our respect. We believe in transparency, minimal collection, and absolute care — just like we treat every fruit‑protein pairing.</p>
+  </section>
+
+  <!-- ========== PRIVACY CONTENT ========== -->
+  <div class="privacy-card">
+    <div class="meta-info">
+      <span><i class="far fa-calendar-alt" style="color:var(--burnt-peach);"></i> Last updated: April 2026</span>
+      <span><i class="far fa-clock" style="color:var(--burnt-peach);"></i> Effective: May 2026</span>
+      <span><i class="fas fa-shield-alt" style="color:var(--burnt-peach);"></i> Version 2.1</span>
+    </div>
+
+    <p class="body-large"><strong>Rexton Muffin Whisper</strong> (“we”, “our”, “us”) is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal data when you visit our website or interact with us.</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>We collect only the data you voluntarily provide:</p>
+    <ul>
+      <li><strong>Contact information</strong> — name, email address, and any message you send via our forms.</li>
+      <li><strong>Usage data</strong> — anonymous analytics (via cookies) to understand how our content is read.</li>
+      <li><strong>Newsletter sign‑ups</strong> — email address and preferences (if you opt in).</li>
+    </ul>
+    <p>We do <em>not</em> collect sensitive data, financial information, or location data without explicit consent.</p>
+
+    <div class="highlight-box">
+      <i class="fas fa-seedling"></i> <strong>Our promise:</strong> We never sell, rent, or trade your personal data. Ever.
+    </div>
+
+    <h2>2. How We Use Your Data</h2>
+    <ul>
+      <li><strong>To respond</strong> to your inquiries, comments, or pitches.</li>
+      <li><strong>To send you</strong> our newsletter (only if you opted in).</li>
+      <li><strong>To improve</strong> our content and user experience via aggregated analytics.</li>
+      <li><strong>To comply</strong> with legal obligations (e.g., data protection requests).</li>
+    </ul>
+
+    <h2>3. Cookies & Tracking</h2>
+    <p>We use minimal cookies to enhance your browsing experience. Our cookies fall into these categories:</p>
+    <ul>
+      <li><strong>Essential</strong> — necessary for site functionality.</li>
+      <li><strong>Analytics</strong> — anonymous traffic tracking (we use privacy‑friendly tools).</li>
+      <li><strong>Preferences</strong> — remembering your settings (e.g., theme).</li>
+    </ul>
+    <p>You can control cookies through your browser settings. For more details, see our <a href="cookies.html" style="color:var(--burnt-peach);">Cookies Policy</a>.</p>
+
+    <h2>4. Data Storage & Security</h2>
+    <p>We store your data on secure servers with industry‑standard encryption. Access is limited to essential personnel. We retain your data only as long as necessary to fulfill the purposes outlined above or as required by law.</p>
+
+    <h2>5. Your Rights</h2>
+    <p>Under applicable data protection laws, you have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> — request a copy of your data.</li>
+      <li><strong>Rectify</strong> — correct any inaccurate data.</li>
+      <li><strong>Erase</strong> — request deletion of your data.</li>
+      <li><strong>Object</strong> — opt out of certain processing.</li>
+      <li><strong>Data portability</strong> — receive your data in a structured format.</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:privacy@rextonmuffin.com" style="color:var(--burnt-peach);">privacy@rextonmuffin.com</a>.</p>
+
+    <h2>6. Third‑Party Links</h2>
+    <p>Our articles may contain links to external websites. We are not responsible for their privacy practices. We encourage you to read their policies before sharing any personal information.</p>
+
+    <h2>7. Children’s Privacy</h2>
+    <p>Our content is not directed at children under 13. We do not knowingly collect data from minors. If you believe a child has provided us with information, please contact us immediately.</p>
+
+    <h2>8. Changes to This Policy</h2>
+    <p>We may update this policy from time to time. We will notify you of significant changes via a prominent notice on our website or by email. The “Last updated” date at the top indicates the latest revision.</p>
+
+    <div class="highlight-box" style="background: #faf3ed; border-left-color: var(--fig-purple);">
+      <i class="fas fa-quote-left" style="color:var(--fig-purple);"></i> “Privacy is not an option, it’s a right. We treat your data like our favorite heirloom recipe — with care, respect, and a touch of secrecy.”
+    </div>
+
+    <h2>9. Contact Us</h2>
+    <p>If you have any questions about this privacy policy or your data, please reach out:</p>
+    <ul style="list-style: none; padding-left: 0;">
+      <li><i class="fas fa-envelope" style="color:var(--burnt-peach); width:1.8rem;"></i> <a href="mailto:privacy@rextonmuffin.com" style="color:var(--deep-umber);">privacy@rextonmuffin.com</a></li>
+      <li><i class="fas fa-map-pin" style="color:var(--burnt-peach); width:1.8rem;"></i> Rexton Muffin Whisper · 42 Orchard Lane, NY 10001</li>
+    </ul>
+  </div>
+
+  <!-- ========== EXTRA DIVIDER ========== -->
+  <div class="section-divider"></div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer-premium">
+    <div>
+      <div class="brand-footer">Rexton <span>Muffin</span> Whisper</div>
+      <p style="font-weight:300; font-size:0.9rem; margin:0.8rem 0; max-width:260px;">A quiet journal for the protein‑fruit continuum. Est. 2026.</p>
+      <div style="display:flex; gap:1rem; font-size:1.4rem; color:#b09b91;">
+        <i class="fab fa-twitter"></i> <i class="fab fa-instagram"></i> <i class="fab fa-substack"></i>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Categories</a>
+      <a href="#">Authors</a>
+    </div>
+    <div>
+      <h4>Info</h4>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Editorial Policy</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </footer>
+  <div style="border-top:1px solid #ddd6cf; padding:1.2rem 0; text-align:center; font-size:0.75rem; color:#9b887f; letter-spacing:0.04em;">
+    © 2026 Rexton Muffin Whisper · authority blog · handcrafted with <i class="fas fa-heart" style="color:var(--burnt-peach);"></i>
+  </div>
+
+</div> <!-- end container -->
+</body>
+</html>

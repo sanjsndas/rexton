@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories · Rexton Muffin Whisper</title>
+  <!-- Google Fonts: premium serif + sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome (minimal icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ---------- RESET & BASE (same as about/homepage) ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #faf7f2;
+      color: #1e1b1a;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    /* ---------- TYPOGRAPHY ---------- */
+    h1, h2, h3, h4 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    h1 {
+      font-size: 3.8rem;
+      line-height: 1.1;
+    }
+    h2 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+    }
+    h3 {
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+    .body-large {
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+    .label-small {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    /* ---------- BRAND COLOR PALETTE ---------- */
+    :root {
+      --cream: #faf7f2;
+      --deep-umber: #2e2522;
+      --burnt-peach: #d48c7a;
+      --fig-purple: #6b4c5a;
+      --sage: #b6b9a9;
+      --soft-gold: #d9b68b;
+      --white: #ffffff;
+      --shadow-sm: 0 8px 20px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.02);
+      --shadow-hover: 0 20px 40px rgba(0,0,0,0.04), 0 10px 20px rgba(0,0,0,0.03);
+    }
+    /* ---------- NAVIGATION (identical) ---------- */
+    .nav-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 1.8rem 0 0.5rem;
+      border-bottom: 1px solid rgba(46, 37, 34, 0.08);
+    }
+    .logo-icon {
+      font-size: 2.4rem;
+      color: var(--burnt-peach);
+      transform: rotate(-6deg);
+      display: inline-block;
+    }
+    .logo-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--deep-umber);
+    }
+    .logo-text span {
+      color: var(--fig-purple);
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 2.5rem;
+      margin: 1.2rem 0 2.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(46, 37, 34, 0.05);
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--deep-umber);
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.3rem;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--burnt-peach);
+      color: var(--burnt-peach);
+    }
+    .nav-links a i {
+      margin-right: 0.4rem;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    /* ---------- CATEGORIES PAGE SPECIFIC ---------- */
+    .categories-hero {
+      margin: 2rem 0 3rem;
+    }
+    .categories-hero h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+    }
+    .categories-hero h1 i {
+      color: var(--burnt-peach);
+      font-style: italic;
+    }
+    .categories-hero .meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-weight: 300;
+      color: #5f4d47;
+      border-bottom: 1px solid #e0d6ce;
+      padding-bottom: 1rem;
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+    .category-card {
+      background: var(--white);
+      padding: 2rem 1.8rem;
+      border-radius: 24px 8px 24px 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #ede8e2;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .category-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+      border-color: var(--burnt-peach);
+    }
+    .category-card .icon-wrap {
+      font-size: 2.4rem;
+      color: var(--burnt-peach);
+      margin-bottom: 0.5rem;
+    }
+    .category-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .category-card h3 .count {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #9b887f;
+      margin-left: auto;
+      background: #f6efe9;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+    }
+    .category-card p {
+      font-weight: 300;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+    }
+    .category-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.2rem;
+    }
+    .category-card .tags span {
+      background: #f6efe9;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #4d3d37;
+    }
+    .btn-ghost-small {
+      background: transparent;
+      border: 1px solid var(--deep-umber);
+      padding: 0.5rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.8rem;
+      cursor: default;
+      transition: all 0.2s;
+      color: var(--deep-umber);
+      display: inline-block;
+      text-decoration: none;
+      align-self: flex-start;
+      margin-top: 0.8rem;
+    }
+    .btn-ghost-small i {
+      margin-left: 0.4rem;
+      font-size: 0.7rem;
+    }
+    .btn-ghost-small:hover {
+      background: var(--deep-umber);
+      color: white;
+      border-color: var(--deep-umber);
+    }
+
+    .featured-category {
+      background: linear-gradient(145deg, #f6efe9, #faf7f2);
+      border-radius: 40px 12px 40px 12px;
+      padding: 2rem 2.5rem;
+      margin: 3rem 0 1rem;
+      border: 1px solid #e0d6ce;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .featured-category h2 {
+      font-size: 2.4rem;
+    }
+    .featured-category h2 i {
+      color: var(--fig-purple);
+    }
+    .featured-category .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--deep-umber);
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: default;
+      transition: all 0.2s;
+      color: var(--deep-umber);
+      display: inline-block;
+      text-decoration: none;
+    }
+    .featured-category .btn-ghost i {
+      margin-left: 0.5rem;
+    }
+    .featured-category .btn-ghost:hover {
+      background: var(--deep-umber);
+      color: white;
+    }
+
+    /* footer (same) */
+    .footer-premium {
+      margin: 6rem 0 2rem;
+      border-top: 2px solid #e0d6ce;
+      padding-top: 3rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+    .footer-premium h4 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .footer-premium a {
+      display: block;
+      text-decoration: none;
+      color: #3d3330;
+      font-size: 0.9rem;
+      padding: 0.3rem 0;
+    }
+    .footer-premium a:hover {
+      color: var(--burnt-peach);
+    }
+    .footer-premium .brand-footer {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+    }
+    .footer-premium .brand-footer span {
+      color: var(--fig-purple);
+      font-style: italic;
+    }
+
+    @media (max-width: 900px) {
+      .categories-grid { grid-template-columns: 1fr 1fr; }
+      .footer-premium { grid-template-columns: 1fr 1fr; }
+      .featured-category { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+    @media (max-width: 600px) {
+      body { padding: 0 1rem; }
+      .categories-grid { grid-template-columns: 1fr; }
+      .footer-premium { grid-template-columns: 1fr; }
+      .categories-hero h1 { font-size: 3rem; }
+      .nav-links { gap: 1rem; }
+      .featured-category h2 { font-size: 1.8rem; }
+    }
+    .fruit-protein-badge {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 1.8rem;
+      opacity: 0.7;
+    }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #d9c8bd, transparent);
+      margin: 2.5rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== BRAND & NAV (identical) ========== -->
+  <header>
+    <div class="nav-brand">
+      <span class="logo-icon"><i class="fas fa-seedling"></i></span>
+      <span class="logo-text">Rexton <span>Muffin</span> Whisper</span>
+      <span style="margin-left:auto; font-size:0.8rem; color:#9b887f;" class="fruit-protein-badge">
+        <span>🍑</span> <span>🥩</span> <span>🍇</span>
+      </span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-book-open"></i> About</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a>
+      <a href="privacy.html"><i class="fas fa-lock"></i> Privacy</a>
+      <a href="cookies.html"><i class="fas fa-cookie"></i> Cookies</a>
+      <a href="categories.html"><i class="fas fa-tags"></i> Categories</a>
+      <a href="disclamier.html"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a>
+    </div>
+  </header>
+
+  <!-- ========== CATEGORIES HERO ========== -->
+  <section class="categories-hero">
+    <h1>Explore <i>the Archives</i></h1>
+    <div class="meta">
+      <span><i class="fas fa-tags"></i> 12 categories</span>
+      <span><i class="fas fa-pencil-alt"></i> 89 articles</span>
+      <span><i class="fas fa-coffee"></i> Updated daily</span>
+    </div>
+    <p class="body-large" style="max-width:70%; margin-top:1rem;">From protein-fruit alchemy to quiet essays on food culture — find your next read by theme.</p>
+  </section>
+
+  <!-- ========== FEATURED CATEGORY ========== -->
+  <div class="featured-category">
+    <div>
+      <h2><i class="fas fa-star"></i> Featured: <span style="color:var(--burnt-peach);">The Protein‑Fruit Continuum</span></h2>
+      <p style="font-weight:300; max-width:500px;">Our flagship series exploring the tension and harmony between plant‑based proteins and fruit‑forward cooking.</p>
+    </div>
+    <a href="#" class="btn-ghost">Browse collection <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <!-- ========== CATEGORIES GRID ========== -->
+  <div class="categories-grid">
+
+    <!-- Card 1 -->
+    <div class="category-card">
+      <div class="icon-wrap"><i class="fas fa-utensils"></i></div>
+      <h3>Recipes <span class="count">24</span></h3>
+      <p>Savory & sweet, always with a twist. Each recipe is a conversation between ingredients.</p>
+      <div class="tags">
+        <span>dinner</span> <span>dessert</span> <span>30 min</span>
+      </div>
+      <a href="#" class="btn-ghost-small">View <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="category-card">
+      <div class="icon-wrap"><i class="fas fa-leaf"></i></div>
+      <h3>Protein‑Fruit <span class="count">18</span></h3>
+      <p>Deep dives into the pairing of stone fruits, berries, and plant‑based proteins.</p>
+      <div class="tags">
+        <span>nutrition</span> <span>flavor</span> <span>science</span>
+      </div>
+      <a href="#" class="btn-ghost-small">View <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="category-card">
+      <div class="icon-wrap"><i class="fas fa-book"></i></div>
+      <h3>Essays <span class="count">12</span></h3>
+      <p>Long‑form reflections on food culture, memory, and the quiet rituals of the table.</p>
+      <div class="tags">
+        <span>culture</span> <span>memory</span> <span>place</span>
+      </div>
+      <a href="#" class="btn-ghost-small">View <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="category-card">
+      <div class="icon-wrap"><i class="fas fa-seedling"></i></div>
+      <h3>Ingredients <span class="count">9</span></h3>
+      <p>Spotlights on single ingredients — from heirloom grains to forgotten fruits.</p>
+      <div class="tags">
+        <span>heritage</span> <span>seasonal</span> <span>sourcing</span>
+      </div>
+      <a href="#" class="btn-ghost-small">View <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="category-card">
+      <div class="icon-wrap"><i class="fas fa-wine-glass-alt"></i></div>
+      <h3>Pairings <span class="count">7</span></h3>
+      <p>Wine, tea, and other beverages that elevate the protein‑fruit experience.</p>
+      <div class="tags">
+        <span>wine</span> <span>tea</span> <span>fermentation</span>
+      </div>
+      <a href="#" class="btn-ghost-small">View <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="category-card">
+      <div class="icon-wrap"><i class="fas fa-hands"></i></div>
+      <h3>Techniques <span class="count">11</span></h3>
+      <p>From knife skills to sous‑vide, every technique tells a story of patience.</p>
+      <div class="tags">
+        <span>knife skills</span> <span>fermentation</span> <span>slow cooking</span>
+      </div>
+      <a href="#" class="btn-ghost-small">View <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="category-card">
+      <div class="icon-wrap"><i class="fas fa-globe-americas"></i></div>
+      <h3>Travel <span class="count">5</span></h3>
+      <p>Food journeys — markets, farms, and kitchens from around the world.</p>
+      <div class="tags">
+        <span>Italy</span> <span>Japan</span> <span>Mexico</span>
+      </div>
+      <a href="#" class="btn-ghost-small">View <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="category-card">
+      <div class="icon-wrap"><i class="fas fa-pencil-alt"></i></div>
+      <h3>Interviews <span class="count">3</span></h3>
+      <p>Conversations with farmers, chefs, and thinkers who shape how we eat.</p>
+      <div class="tags">
+        <span>farmers</span> <span>chefs</span> <span>writers</span>
+      </div>
+      <a href="#" class="btn-ghost-small">View <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+  </div>
+
+  <!-- ========== DIVIDER ========== -->
+  <div class="section-divider"></div>
+
+  <!-- ========== SUBSCRIBE / MORE ========== -->
+  <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1.5rem; margin: 2rem 0 1rem;">
+    <div>
+      <h3 style="font-size:2rem;">Can't find what you're looking for?</h3>
+      <p style="font-weight:300;">Try the search or browse all articles chronologically.</p>
+    </div>
+    <span class="btn-ghost" style="cursor:pointer;"><i class="fas fa-search"></i> Search archives</span>
+  </div>
+
+  <!-- ========== FOOTER (identical) ========== -->
+  <footer class="footer-premium">
+    <div>
+      <div class="brand-footer">Rexton <span>Muffin</span> Whisper</div>
+      <p style="font-weight:300; font-size:0.9rem; margin:0.8rem 0; max-width:260px;">A quiet journal for the protein‑fruit continuum. Est. 2026.</p>
+      <div style="display:flex; gap:1rem; font-size:1.4rem; color:#b09b91;">
+        <i class="fab fa-twitter"></i> <i class="fab fa-instagram"></i> <i class="fab fa-substack"></i>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Categories</a>
+      <a href="#">Authors</a>
+    </div>
+    <div>
+      <h4>Info</h4>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Editorial Policy</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </footer>
+  <div style="border-top:1px solid #ddd6cf; padding:1.2rem 0; text-align:center; font-size:0.75rem; color:#9b887f; letter-spacing:0.04em;">
+    © 2026 Rexton Muffin Whisper · authority blog · handcrafted with <i class="fas fa-heart" style="color:var(--burnt-peach);"></i>
+  </div>
+
+</div> <!-- end container -->
+</body>
+</html>
